@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+h2 {
+	text-align: center;
+	margin-top: 10px;
+}
+
+
+#tableGet {
+	display: none;
+	text-align: center;
+	font-size: 14px;
+}
+
+#tableGet tbody tr:hover {
+	background-color: #cee1ff;
+}
+
+#updateFilmId, #deleteFilmId, #updateFilmFormId {
+	display: none;
+}
+
+#reviewAdd, #reviewUpdate {
+	height: 200px;
+}
+
+#addButtonLink {
+	text-align: center;
+}
+
+#addFilmDiv, #updateFilmDiv {
+	margin: auto;
+    width: 60%;
+}
+
+input[type=text], input[type=number] {
+	padding: 12px 20px;
+  	margin: 8px 0;
+  	box-sizing: border-box;
+}
+

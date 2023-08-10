@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+#header {
+	text-align: center;
+	margin-top: 10px;
+}
+
+#addAlert, #editAlert, #deleteAlert {
+	display: none;
+}
+
+.editButton {
+	margin-right: 3px;
+}
+
+.deleteButton {
+	margin-left: 3px;
+}
+
+#reviewAdd, #reviewEdit {
+	height: 200px;
+}
+
+#tableToDataTable {
+	display: none;
+	text-align: center;
+	font-size: 14px;
+}
+
+#tableToDataTable tbody tr:hover {
+	background-color: #cee1ff;
+}
+ 
+#idEdit, #idDelete {
+	display: none;
+}

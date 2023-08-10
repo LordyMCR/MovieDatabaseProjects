@@ -1,0 +1,48 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from FilmServiceImplDAOService WSDL service -->
+
+  <service name="FilmServiceImplDAO" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://service"/>
+      <parameter name="wsdlServiceElement" value="FilmServiceImplDAOService"/>
+      <parameter name="schemaQualified" value="http://model,http://service"/>
+      <parameter name="wsdlServicePort" value="FilmServiceImplDAO"/>
+      <parameter name="className" value="service.FilmServiceImplDAOSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="FilmServiceImplDAO"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getFilmsAll" qname="operNS:getFilmsAll" xmlns:operNS="http://service" returnQName="retNS:getFilmsAllReturn" xmlns:retNS="http://service" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="getFilmById" qname="operNS:getFilmById" xmlns:operNS="http://service" returnQName="retNS:getFilmByIdReturn" xmlns:retNS="http://service" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://service" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="addFilm" qname="operNS:addFilm" xmlns:operNS="http://service" returnQName="retNS:addFilmReturn" xmlns:retNS="http://service" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:f" xmlns:pns="http://service" type="tns:Film" xmlns:tns="http://model"/>
+      </operation>
+      <operation name="editFilm" qname="operNS:editFilm" xmlns:operNS="http://service" returnQName="retNS:editFilmReturn" xmlns:retNS="http://service" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:f" xmlns:pns="http://service" type="tns:Film" xmlns:tns="http://model"/>
+      </operation>
+      <operation name="deleteFilm" qname="operNS:deleteFilm" xmlns:operNS="http://service" returnQName="retNS:deleteFilmReturn" xmlns:retNS="http://service" returnType="rtns:boolean" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://service" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="addFilm getFilmById editFilm deleteFilm getFilmsAll"/>
+
+      <typeMapping
+        xmlns:ns="http://model"
+        qname="ns:Film"
+        type="java:model.Film"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>
