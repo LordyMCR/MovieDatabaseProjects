@@ -7,7 +7,7 @@ Multiple movie database projects built using Java backends and HTML/CSS/JavaScri
   * Application deployed using Google Cloud App Engine
 * WSDL / SOAP Service and Client
 
-**Note: Database connection usernames, passwords, and addresses have been changed from the original.**
+**Note: This project was uilt as an assignment for my university degree course. All database connection usernames, passwords, and addresses have been changed from the original.**
 
 All projects, excluding the WSDL/SOAP Service, share a very similar user interface design to better highlight the architectural designs for each project, and to showcase how the various processes can be utilised to create the same design. See below:
 <br /><br />
